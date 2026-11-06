@@ -93,45 +93,8 @@ QtObject {
         "bloom": {
           "description": "Default. Minimal Material You: neutral surfaces, color only where it carries meaning.",
           "dynamicColor": true,
-          "defaultSeed": "sapphire",
+          "defaultSeed": "ocean",
           "seeds": {
-            "sapphire": {
-              "seed": "#0066FF",
-              "light": {
-                "primary": "#0050D8",
-                "onPrimary": "#FFFFFF",
-                "primaryContainer": "#D9E9FF",
-                "onPrimaryContainer": "#001D47",
-                "secondaryContainer": "#EEF5FF",
-                "onSecondaryContainer": "#06132D",
-                "surface": "#F8FAFC",
-                "surfaceContainerLow": "#F1F5F9",
-                "surfaceContainer": "#E2E8F0",
-                "surfaceContainerHigh": "#CBD5E1",
-                "surfaceContainerHighest": "#94A3B8",
-                "onSurface": "#0F172A",
-                "onSurfaceVariant": "#334155",
-                "outline": "#64748B",
-                "outlineVariant": "#CBD5E1"
-              },
-              "dark": {
-                "primary": "#38BDF8",
-                "onPrimary": "#06132D",
-                "primaryContainer": "#003DAA",
-                "onPrimaryContainer": "#D9E9FF",
-                "secondaryContainer": "#0F1A36",
-                "onSecondaryContainer": "#B8D6FF",
-                "surface": "#060B1A",
-                "surfaceContainerLow": "#090F21",
-                "surfaceContainer": "#0B132B",
-                "surfaceContainerHigh": "#0F1A36",
-                "surfaceContainerHighest": "#182547",
-                "onSurface": "#F8FAFC",
-                "onSurfaceVariant": "#94A3B8",
-                "outline": "#64748B",
-                "outlineVariant": "#1E293B"
-              }
-            },
             "honey": {
               "seed": "#B7791F",
               "light": {

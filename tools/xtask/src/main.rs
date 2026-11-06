@@ -395,7 +395,7 @@ mod tests {
         for seed in tokens.pointer("/themes/bloom/seeds").unwrap().as_object().unwrap().keys() {
             assert!(kotlin.contains(&format!("\"{seed}\" to Seed(")), "{seed}");
         }
-        assert!(kotlin.contains("primary = Color(0xFF8A5100)"));
+        assert!(kotlin.contains("primary = Color(0xFF0050D8)"));
     }
 
     #[test]

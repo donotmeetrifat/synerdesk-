@@ -1717,7 +1717,7 @@ pub mod elevated {
     /// The only package the PC runs anything for.
     pub const PACKAGE: &str = "com.synerdesk.app";
     /// The helper the PC starts, with `app_process`.
-    pub const HELPER_CLASS: &str = "com.synerdesk.app.elevated.InputServer";
+    pub const HELPER_CLASS: &str = "app.nectarlink.android.elevated.InputServer";
     /// Grants a request may carry, at most.
     pub const MAX_GRANTS: usize = 8;
 }

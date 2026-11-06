@@ -30,46 +30,9 @@ data class Palette(
 data class Seed(val color: Color, val light: Palette, val dark: Palette)
 
 object Tokens {
-    const val DEFAULT_SEED = "sapphire"
+    const val DEFAULT_SEED = "ocean"
 
     val bloomSeeds: Map<String, Seed> = linkedMapOf(
-        "sapphire" to Seed(
-            color = Color(0xFF0066FF),
-            light = Palette(
-                primary = Color(0xFF0050D8),
-                onPrimary = Color(0xFFFFFFFF),
-                primaryContainer = Color(0xFFD9E9FF),
-                onPrimaryContainer = Color(0xFF001D47),
-                secondaryContainer = Color(0xFFEEF5FF),
-                onSecondaryContainer = Color(0xFF06132D),
-                surface = Color(0xFFF8FAFC),
-                surfaceContainerLow = Color(0xFFF1F5F9),
-                surfaceContainer = Color(0xFFE2E8F0),
-                surfaceContainerHigh = Color(0xFFCBD5E1),
-                surfaceContainerHighest = Color(0xFF94A3B8),
-                onSurface = Color(0xFF0F172A),
-                onSurfaceVariant = Color(0xFF334155),
-                outline = Color(0xFF64748B),
-                outlineVariant = Color(0xFFCBD5E1),
-            ),
-            dark = Palette(
-                primary = Color(0xFF38BDF8),
-                onPrimary = Color(0xFF06132D),
-                primaryContainer = Color(0xFF003DAA),
-                onPrimaryContainer = Color(0xFFD9E9FF),
-                secondaryContainer = Color(0xFF0F1A36),
-                onSecondaryContainer = Color(0xFFB8D6FF),
-                surface = Color(0xFF060B1A),
-                surfaceContainerLow = Color(0xFF090F21),
-                surfaceContainer = Color(0xFF0B132B),
-                surfaceContainerHigh = Color(0xFF0F1A36),
-                surfaceContainerHighest = Color(0xFF182547),
-                onSurface = Color(0xFFF8FAFC),
-                onSurfaceVariant = Color(0xFF94A3B8),
-                outline = Color(0xFF64748B),
-                outlineVariant = Color(0xFF1E293B),
-            ),
-        ),
         "honey" to Seed(
             color = Color(0xFFB7791F),
             light = Palette(
