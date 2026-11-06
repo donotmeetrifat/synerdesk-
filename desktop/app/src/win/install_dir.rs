@@ -30,7 +30,7 @@ use windows::{
 use crate::{i18n::tr, setup::Placement};
 
 /// The folder the app goes into inside the one the user picks.
-pub const FOLDER_NAME: &str = "Nectarlink";
+pub const FOLDER_NAME: &str = "SynerDesk";
 
 /// Longest install folder accepted: the app's deepest file adds about 90
 /// characters, and it has to stay under Windows' 260.

@@ -168,7 +168,7 @@ jobs:
         run: ./scripts/smoke-installer.ps1
       - uses: actions/upload-artifact@v7
         with:
-          name: nectarlink-windows-x64
+          name: synerdesk-windows-x64
           path: target/package/*-setup.exe
           retention-days: 14
 
@@ -398,7 +398,7 @@ jobs:
         run: ./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug
       - uses: actions/upload-artifact@v7
         with:
-          name: nectarlink-android-debug
+          name: synerdesk-android-debug
           path: android/app/build/outputs/apk/debug/*.apk
           retention-days: 14
 

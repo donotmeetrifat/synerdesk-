@@ -298,7 +298,7 @@ fn announce(update: &Update) {
         key: update.version.clone(),
         title: tr!("Updater", "NectarLink %1 is available", update.title()),
         body: tr!("Updater", "Update now, or later from Settings."),
-        attribution: "NectarLink".into(),
+        attribution: "SynerDesk".into(),
         icon: None,
         image: None,
         actions: vec![(ACTION_UPDATE.into(), "Update".into())],
@@ -673,7 +673,7 @@ fn staging_dir() -> PathBuf {
         .map(PathBuf::from)
         .filter(|p| p.is_absolute())
         .unwrap_or_else(|| PathBuf::from(r"C:\ProgramData"))
-        .join("Nectarlink")
+        .join("SynerDesk")
         .join("updates")
 }
 
@@ -1323,7 +1323,7 @@ fn after_start(shown: bool, title: String, body: String) {
             key: "updated".into(),
             title,
             body,
-            attribution: "NectarLink".into(),
+            attribution: "SynerDesk".into(),
             icon: None,
             image: None,
             actions: Vec::new(),

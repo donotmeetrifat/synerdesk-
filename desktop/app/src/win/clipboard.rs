@@ -151,14 +151,14 @@ fn run() -> windows::core::Result<()> {
             cbSize: std::mem::size_of::<WNDCLASSEXW>() as u32,
             lpfnWndProc: Some(window_proc),
             hInstance: instance.into(),
-            lpszClassName: w!("Nectarlink.Clipboard"),
+            lpszClassName: w!("SynerDesk.Clipboard"),
             ..Default::default()
         };
         RegisterClassExW(&class);
         CreateWindowExW(
             WINDOW_EX_STYLE(0),
-            w!("Nectarlink.Clipboard"),
-            w!("NectarLink clipboard"),
+            w!("SynerDesk.Clipboard"),
+            w!("SynerDesk clipboard"),
             WINDOW_STYLE(0),
             0,
             0,

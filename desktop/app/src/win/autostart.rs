@@ -17,7 +17,7 @@ use windows::{
 };
 
 const RUN_KEY: &str = r"Software\Microsoft\Windows\CurrentVersion\Run";
-const VALUE: &str = "Nectarlink";
+const VALUE: &str = "SynerDesk";
 
 /// The command the `Run` value holds.
 pub fn command(exe: &Path) -> String {
@@ -95,7 +95,7 @@ mod tests {
             r"C:\Users\me\src\nectarlink\target\release\nectarlink-desktop.exe"
         )));
         if let Ok(dir) = std::env::var("ProgramFiles") {
-            assert!(is_installed(&Path::new(&dir).join("Nectarlink").join("nectarlink-desktop.exe")));
+            assert!(is_installed(&Path::new(&dir).join("SynerDesk").join("nectarlink-desktop.exe")));
         }
     }
 

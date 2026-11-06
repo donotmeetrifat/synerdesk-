@@ -45,12 +45,12 @@ SetCompressor /SOLID zlib
 
 ; APP names the install folder, registry keys and the firewall rule; DISPLAY is
 ; the name people see.
-!define APP "Nectarlink"
-!define DISPLAY "NectarLink"
-!define EXE "nectarlink-desktop.exe"
-!define SETUP_EXE "Nectarlink Setup.exe"
+!define APP "SynerDesk"
+!define DISPLAY "SynerDesk"
+!define EXE "synerdesk-desktop.exe"
+!define SETUP_EXE "SynerDesk Setup.exe"
 !define UNINSTALL_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP}"
-!define FIREWALL_RULE "Nectarlink"
+!define FIREWALL_RULE "SynerDesk"
 
 Name "${DISPLAY}"
 OutFile "${OUTFILE}"
@@ -67,7 +67,7 @@ ShowUninstDetails nevershow
 VIProductVersion "${VERSION}.${BUILD}"
 VIAddVersionKey "ProductName" "${DISPLAY}"
 VIAddVersionKey "FileDescription" "${DISPLAY} Setup"
-VIAddVersionKey "CompanyName" "The NectarLink contributors"
+VIAddVersionKey "CompanyName" "SynerDesk Team"
 VIAddVersionKey "LegalCopyright" "GPL-3.0-or-later"
 VIAddVersionKey "FileVersion" "${VERSION}"
 VIAddVersionKey "ProductVersion" "${DISPLAY_VERSION}"

@@ -18,7 +18,7 @@ exclude = ["third_party"]
 version = "0.1.5"
 edition = "2024"
 rust-version = "1.97"
-authors = ["The NectarLink contributors"]
+authors = ["SynerDesk Team"]
 repository = "https://github.com/thtbee/nectarlink"
 
 # Each release's name, from a bee's life (0.1 Pollen, …); the release

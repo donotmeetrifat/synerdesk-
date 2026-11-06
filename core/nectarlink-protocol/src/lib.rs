@@ -20,9 +20,9 @@ pub use id::{DeviceId, ParseDeviceIdError};
 pub use video::{MAX_VIDEO_PACKET, PacketKind, VideoPacket, read_video_packet, video_packet_header};
 
 /// ALPN for normal sessions between paired devices.
-pub const ALPN_SESSION: &[u8] = b"nectarlink/0";
+pub const ALPN_SESSION: &[u8] = b"synerdesk/0";
 /// ALPN for the pairing ceremony.
-pub const ALPN_PAIR: &[u8] = b"nectarlink-pair/0";
+pub const ALPN_PAIR: &[u8] = b"synerdesk-pair/0";
 
 /// Protocol version spoken by this implementation.
 pub const PROTOCOL_VERSION: u32 = 0;

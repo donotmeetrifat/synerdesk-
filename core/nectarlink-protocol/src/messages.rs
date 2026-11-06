@@ -1715,9 +1715,9 @@ pub mod elevated {
     /// Offered by PCs that can start a USB-connected phone's helper.
     pub const USB: &str = "elevated.usb";
     /// The only package the PC runs anything for.
-    pub const PACKAGE: &str = "app.nectarlink";
+    pub const PACKAGE: &str = "com.synerdesk.app";
     /// The helper the PC starts, with `app_process`.
-    pub const HELPER_CLASS: &str = "app.nectarlink.android.elevated.InputServer";
+    pub const HELPER_CLASS: &str = "com.synerdesk.app.elevated.InputServer";
     /// Grants a request may carry, at most.
     pub const MAX_GRANTS: usize = 8;
 }
@@ -4507,15 +4507,15 @@ mod tests {
 
     #[test]
     fn elevated_usb_only_runs_the_apps_own_helper_and_grants() {
-        let apk = "/data/app/~~kG3x_Q==/app.nectarlink-Ab1-cD2==/base.apk";
+        let apk = "/data/app/~~kG3x_Q==/com.synerdesk.app-Ab1-cD2==/base.apk";
         let start = ElevatedUsbStart {
             apk: apk.into(),
             token: "0123456789abcdef0123456789abcdef0123456789abcdef".into(),
             grants: vec![
-                "pm grant app.nectarlink android.permission.WRITE_SECURE_SETTINGS".into(),
-                "appops set app.nectarlink RECEIVE_SENSITIVE_NOTIFICATIONS allow".into(),
-                "cmd notification allow_dnd app.nectarlink".into(),
-                "cmd notification allow_listener app.nectarlink/app.nectarlink.android.notifications.NotificationListener"
+                "pm grant com.synerdesk.app android.permission.WRITE_SECURE_SETTINGS".into(),
+                "appops set com.synerdesk.app RECEIVE_SENSITIVE_NOTIFICATIONS allow".into(),
+                "cmd notification allow_dnd com.synerdesk.app".into(),
+                "cmd notification allow_listener com.synerdesk.app/com.synerdesk.app.android.notifications.NotificationListener"
                     .into(),
             ],
         };
@@ -4523,18 +4523,18 @@ mod tests {
 
         for apk in [
             "/data/app/other.app-1/base.apk",
-            "/sdcard/app.nectarlink/base.apk",
-            "/data/app/app.nectarlink-1/../../evil/base.apk",
-            "/data/app/app.nectarlink-1/base.apk; reboot",
-            "/data/app/app.nectarlink-1/base.apk$(id)",
+            "/sdcard/com.synerdesk.app/base.apk",
+            "/data/app/com.synerdesk.app-1/../../evil/base.apk",
+            "/data/app/com.synerdesk.app-1/base.apk; reboot",
+            "/data/app/com.synerdesk.app-1/base.apk$(id)",
         ] {
             assert!(!ElevatedUsbStart { apk: apk.into(), ..start.clone() }.is_valid(), "{apk}");
         }
         for grant in [
             "pm grant com.other android.permission.WRITE_SECURE_SETTINGS",
-            "pm grant app.nectarlink android.permission.X; rm -rf /sdcard",
-            "pm grant app.nectarlink android.permission.X && reboot",
-            "appops set app.nectarlink.evil SYSTEM_ALERT_WINDOW allow",
+            "pm grant com.synerdesk.app android.permission.X; rm -rf /sdcard",
+            "pm grant com.synerdesk.app android.permission.X && reboot",
+            "appops set com.synerdesk.app.evil SYSTEM_ALERT_WINDOW allow",
             "cmd notification allow_listener com.other/x.Listener",
             "cmd notification allow_dnd com.other",
             "settings put global adb_enabled 1",
@@ -4549,10 +4549,10 @@ mod tests {
         assert!(!ElevatedUsbStart { grants: vec![start.grants[0].clone(); 9], ..start.clone() }.is_valid());
         // The side-by-side test build grants itself, in debug builds only.
         let dev = ElevatedUsbStart {
-            apk: "/data/app/~~kG3x_Q==/app.nectarlink.dev-Ab1-cD2==/base.apk".into(),
+            apk: "/data/app/~~kG3x_Q==/com.synerdesk.app.dev-Ab1-cD2==/base.apk".into(),
             grants: vec![
-                "pm grant app.nectarlink.dev android.permission.WRITE_SECURE_SETTINGS".into(),
-                "cmd notification allow_listener app.nectarlink.dev/app.nectarlink.android.notifications.NotificationListener".into(),
+                "pm grant com.synerdesk.app.dev android.permission.WRITE_SECURE_SETTINGS".into(),
+                "cmd notification allow_listener com.synerdesk.app.dev/com.synerdesk.app.android.notifications.NotificationListener".into(),
             ],
             ..start
         };

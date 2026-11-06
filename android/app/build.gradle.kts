@@ -34,7 +34,7 @@ android {
     ndkVersion = "30.0.16248370"
 
     defaultConfig {
-        applicationId = "app.nectarlink"
+        applicationId = "com.synerdesk.app"
         minSdk = 26
         targetSdk = 37
         versionCode = appVersionCode
@@ -66,7 +66,7 @@ android {
             create("release") {
                 storeFile = keystore
                 storePassword = System.getenv("NECTARLINK_KEYSTORE_PASSWORD")
-                keyAlias = "nectarlink"
+                keyAlias = "synerdesk"
                 keyPassword = System.getenv("NECTARLINK_KEYSTORE_PASSWORD")
             }
         }

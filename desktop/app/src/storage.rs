@@ -85,7 +85,7 @@ mod imp {
 
     /// Provider prefix for sync root IDs (`NectarLink!<device_id>`).
     #[cfg(windows)]
-    const PROVIDER_PREFIX: &str = "Nectarlink!";
+    const PROVIDER_PREFIX: &str = "SynerDesk!";
 
     /// Difference between Windows FILETIME epoch (1601-01-01) and Unix epoch
     /// (1970-01-01) in 100-nanosecond intervals.
@@ -347,7 +347,7 @@ mod imp {
     }
 
     pub(crate) fn base_sync_dir() -> Option<PathBuf> {
-        dirs::home_dir().map(|h| h.join("Nectarlink"))
+        dirs::home_dir().map(|h| h.join("SynerDesk"))
     }
 
     #[cfg(windows)]
@@ -814,7 +814,7 @@ mod imp {
             key: format!("storage-refused-{device}"),
             title: tr!("Storage", "%1's files aren't shared with this PC", name),
             body,
-            attribution: "NectarLink".into(),
+            attribution: "SynerDesk".into(),
             icon: None,
             image: None,
             actions: Vec::new(),
