@@ -1,4 +1,4 @@
-; SPDX-License-Identifier: GPL-3.0-or-later
+﻿; SPDX-License-Identifier: GPL-3.0-or-later
 ;
 ; The NectarLink installer for Windows (built by scripts/package.ps1).
 ;
@@ -384,7 +384,7 @@ Section "Install"
   !insertmacro Progress "step updates"
   ${If} $AdminOnly != 1
     ; Updates ask for permission in this folder (see the top of this file).
-    nsExec::Exec 'schtasks /Delete /TN "Nectarlink Update" /F'
+    nsExec::Exec 'schtasks /Delete /TN "${APP} Update" /F'
     Goto updates_done
   ${EndIf}
   InitPluginsDir
@@ -412,7 +412,7 @@ Section "Install"
   FileWriteUTF16LE $0 '  </Actions>$\r$\n'
   FileWriteUTF16LE $0 '</Task>$\r$\n'
   FileClose $0
-  nsExec::Exec 'schtasks /Create /TN "Nectarlink Update" /XML "$PLUGINSDIR\update-task.xml" /F'
+  nsExec::Exec 'schtasks /Create /TN "${APP} Update" /XML "$PLUGINSDIR\update-task.xml" /F'
   updates_done:
 
   !insertmacro Progress "step shortcuts"
@@ -449,10 +449,10 @@ Section "Install"
   WriteRegDWORD HKLM "Software\${APP}" "AdminOnlyFolder" $AdminOnly
   WriteRegStr HKLM "${UNINSTALL_KEY}" "DisplayName" "${DISPLAY}"
   WriteRegStr HKLM "${UNINSTALL_KEY}" "DisplayVersion" "${DISPLAY_VERSION}"
-  WriteRegStr HKLM "${UNINSTALL_KEY}" "Publisher" "The NectarLink contributors"
+  WriteRegStr HKLM "${UNINSTALL_KEY}" "Publisher" "SynerDesk Team"
   WriteRegStr HKLM "${UNINSTALL_KEY}" "DisplayIcon" "$INSTDIR\${EXE}"
   WriteRegStr HKLM "${UNINSTALL_KEY}" "InstallLocation" "$INSTDIR"
-  WriteRegStr HKLM "${UNINSTALL_KEY}" "URLInfoAbout" "https://github.com/thtbee/nectarlink"
+  WriteRegStr HKLM "${UNINSTALL_KEY}" "URLInfoAbout" "https://github.com/donotmeetrifat/synerdesk-"
   ; Windows Settings > Apps opens NectarLink's own uninstall window.
   WriteRegStr HKLM "${UNINSTALL_KEY}" "UninstallString" '"$INSTDIR\${EXE}" --remove'
   WriteRegStr HKLM "${UNINSTALL_KEY}" "QuietUninstallString" '"$INSTDIR\uninstall.exe" /S'
@@ -482,9 +482,9 @@ Section "Uninstall"
   ${EndIf}
 
   !insertmacro Progress "step cleanup"
-  nsExec::Exec 'powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "try { Get-AppxPackage -Name \"Nectarlink.Desktop\" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue } catch {}"'
+  nsExec::Exec 'powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "try { Get-AppxPackage -Name \"SynerDesk.Desktop\" -ErrorAction SilentlyContinue | Remove-AppxPackage -ErrorAction SilentlyContinue } catch {}"'
   nsExec::Exec 'netsh advfirewall firewall delete rule name="${FIREWALL_RULE}"'
-  nsExec::Exec 'schtasks /Delete /TN "Nectarlink Update" /F'
+  nsExec::Exec 'schtasks /Delete /TN "${APP} Update" /F'
   Delete "$SMPROGRAMS\${DISPLAY}.lnk"
   Delete "$DESKTOP\${DISPLAY}.lnk"
   ; Only ever a folder of our own (a silent install can be pointed

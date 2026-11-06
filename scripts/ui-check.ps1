@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
+﻿# SPDX-License-Identifier: GPL-3.0-or-later
 <#
 .SYNOPSIS
   Opens the Windows app's main window for a few seconds and fails on any
@@ -30,7 +30,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path -Parent $PSScriptRoot
-if (-not $Exe) { $Exe = Join-Path $repo 'target\package\Nectarlink\nectarlink-desktop.exe' }
+if (-not $Exe) { $Exe = Join-Path $repo 'target\package\SynerDesk\synerdesk-desktop.exe' }
 if (-not (Test-Path $Exe)) { throw "$Exe not found; run scripts\package.ps1 -StageOnly first, or pass -Exe" }
 
 foreach ($pass in @('walkthrough', 'home')) {

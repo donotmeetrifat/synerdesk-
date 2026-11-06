@@ -11,7 +11,7 @@ license = "GPL-3.0-or-later"
 publish = false
 
 [[bin]]
-name = "nectarlink-desktop"
+name = "synerdesk-desktop"
 path = "src/main.rs"
 
 [dependencies]

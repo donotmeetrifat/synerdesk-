@@ -15,6 +15,8 @@ signing.properties
 /target/
 **/target/
 **/*.rs.bk
+build_artifacts/
+*.log
 
 # ---- Qt / C++ build output ----
 build/
